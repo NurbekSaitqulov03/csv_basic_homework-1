@@ -10,7 +10,10 @@ def get_first_column(data):
     x = csv.reader(data, delimiter=",")
     a = []
     for i in x:
-        a.append(i[0])
+        if i[0].isdigit():
+            a.append(int(i[0]))
+        else:
+            a.append(i[0])
     return a
 # Read the csv file
 data = open('data.csv', 'r')
